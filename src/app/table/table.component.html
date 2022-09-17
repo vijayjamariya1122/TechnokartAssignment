@@ -1,0 +1,30 @@
+<div class="col-12">
+  <div class="table-responsive">
+  <table class="table table-hover ">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">
+          Sr
+        </th>
+        <th scope="col"> Title</th>
+        <th scope="col"> Rating</th>
+        <th scope="col"> Popularity</th>
+        <th scope="col"> Adult</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of items| paginate: { itemsPerPage: 10, currentPage: currentPage} let i = index;">
+        <td>{{ i+1 }}</td>
+        <td>{{ item.title}}</td>
+        <td>{{ item.vote_average }}</td>
+        <td>{{ item.popularity}}</td>
+        <td>{{item.adult}}</td>
+        </tr>
+    </tbody>
+  </table>
+  </div>
+  </div>
+
+  <div class="pagination">
+    <span> <pagination-controls (pageChange)="currentPage = $event"></pagination-controls> </span>
+  </div>
